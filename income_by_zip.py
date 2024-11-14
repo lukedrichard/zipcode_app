@@ -52,8 +52,7 @@ def analyze(zipcode_int):
     data = StringIO(response.text)  # Convert the text to a file-like object
     irs_df = pd.read_csv(data)
 
-
-
+    
     location_df = pd.read_csv('zipcodes.us.csv')
 
     zip_dict = {'lower_brack':[1, 25000, 50000, 75000, 100000, 200000],

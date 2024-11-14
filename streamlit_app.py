@@ -10,14 +10,16 @@ streamlit.title("My Streamlit App")
 user_input = (streamlit.text_input("Enter a US zipcode:"))
 
 # Your main function or logic that processes user input
-#mean, median, location = income_by_zip.analyze(int(user_input))
-#streamlit.write(f'The mean income of {location} is ${mean}')
-#streamlit.write(f'The median income of {location} is ${median}')
+mean, median, location = income_by_zip.analyze(int(user_input))
+streamlit.write(f'The mean income of {location} is ${mean}')
+streamlit.write(f'The median income of {location} is ${median}')
 
-try:
+#try:
+    #check for input = 0
+    #1/user_input
     #run mean and median functions
-    mean, median, location = income_by_zip.analyze(int(user_input))
-    streamlit.write(f'The mean income of {location} is ${mean}')
-    streamlit.write(f'The median income of {location} is ${median}')
-except Exception:
-    streamlit.write("The zipcode you input is invalid. Please try again.")
+#    mean, median, location = income_by_zip.analyze(int(user_input))
+#    streamlit.write(f'The mean income of {location} is ${mean}')
+#    streamlit.write(f'The median income of {location} is ${median}')
+#except Exception:
+#    streamlit.write("The zipcode you input is invalid. Please try again.")
