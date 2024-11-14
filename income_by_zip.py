@@ -1,4 +1,6 @@
 import pandas as pd
+import requests
+from io import StringIO
 
 # implement a function that calculates the mean income for a ZIP area
 def mean_income(zip_dict) -> int:
@@ -39,7 +41,19 @@ def median_income(zip_dict) -> int:
     return median
 
 def analyze(zipcode_int):
-    irs_df = pd.read_csv('20zpallagi.csv')
+    #irs_df = pd.read_csv('20zpallagi.csv')
+    # URL of the large file in GitHub (raw)
+    file_url = "https://github.com/lukedrichard/zipcode_app/blob/main/20zpallagi.csv"
+
+    # Download the file
+    response = requests.get(file_url)
+
+    # Assuming it's a CSV, load it into pandas DataFrame
+    data = StringIO(response.text)  # Convert the text to a file-like object
+    irs_df = pd.read_csv(data)
+
+
+
     location_df = pd.read_csv('zipcodes.us.csv')
 
     zip_dict = {'lower_brack':[1, 25000, 50000, 75000, 100000, 200000],
