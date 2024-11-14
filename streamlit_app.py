@@ -15,8 +15,6 @@ user_input = (streamlit.text_input("Enter a US zipcode:"))
 #streamlit.write(f'The median income of {location} is ${median}')
 
 try:
-    #check for input = 0
-    #1/user_input
     #run mean and median functions
     mean, median, location = income_by_zip.analyze(int(user_input))
     streamlit.write(f'The mean income of {location} is ${mean}')
