@@ -45,7 +45,7 @@ def analyze(zipcode_int):
     zip_dict = {'lower_brack':[1, 25000, 50000, 75000, 100000, 200000],
             'upper_brack':[24999, 49999, 74999, 99999, 199999, 10000000],}
     
-    num_returns = irs_df[irs_df['zipcode'] == zipcode_int]['N1']
+    num_returns = irs_df[irs_df['ZIPCODE'] == zipcode_int]['N1']
     zip_dict.update({'amount': num_returns})
 
     city= location_df[location_df['zipcode'] == zipcode_int]['place'].iloc[0]
