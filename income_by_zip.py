@@ -50,9 +50,11 @@ def analyze(zipcode_int):
     num_returns = irs_df[irs_df['zipcode'] == zipcode_int]['N1']
     zip_dict.update({'amount': num_returns})
 
-    city= location_df[location_df['zipcode'] == zipcode_int]['place'].iloc[0]
-    state = location_df[location_df['zipcode'] == zipcode_int]['state'].iloc[0]
-    location = city + ', ' + state
+    #city= location_df[location_df['zipcode'] == zipcode_int]['place'].iloc[0]
+    #state = location_df[location_df['zipcode'] == zipcode_int]['state'].iloc[0]
+    #location = city + ', ' + state
+    city_df = location_df[location_df['zipcode'] == zipcode_int] 
+    location = city_df['place'].to_string(header = False, index = False) + ", " + city_df['state'].to_string(header = False, index = False)
 
     mean = mean_income(zip_dict)
     median = median_income(zip_dict)
